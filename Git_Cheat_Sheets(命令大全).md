@@ -45,7 +45,7 @@ git diff HEAD  #查看工作区和版本库里面最新版本的区别
 git log  #显示从最近到最远的提交日志
 git log --pretty=oneline #HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，上100个版本是HEAD~100
 ```
-- - 版本回退到上一个版本，并查看当前文件内容
+- 版本回退到上一个版本，并查看当前文件内容
 ```java
 git reset --hard HEAD^
 git reset --hard 3628164  #3628164为commit id（版本号）
@@ -57,9 +57,50 @@ git reflog
 ```
 - 丢弃工作区修改
 ```git
-git checkout -- file
+git checkout -- xx.txt
 ```
-
+- 撤销暂存区修改
+```git
+git reset HEAD file
+```
+- 删除暂存区文件
+```git
+git rm <file>
+git commit -m "xxxx"
+```
+- 从暂存区恢复删除文件
+```git
+git checkout --<file>
+```
+- 创建一个ssh key
+```
+ssh-keygen -t rsa -C "email@example.com"
+```
+- 关联远程仓库
+```git
+git remote add origin git@server-name:path/repo-name.git
+```
+- 首次 push 到远程仓库
+```git
+ git push -u origin master 
+```
+- 非首次推送到远程仓库
+```git
+git push origin master 
+```
+- 从远程仓库克隆
+```git
+git clone git@server-name:path/repo-name.git
+```
+- 分支管理
+```git
+查看分支：git branch
+创建分支：git branch <name>
+切换分支：git checkout <name>
+创建+切换分支：git checkout -b <name>
+合并某分支到当前分支：git merge <name>
+删除分支：git branch -d <name>
+```
 
 
 
