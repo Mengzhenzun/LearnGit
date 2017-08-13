@@ -16,4 +16,55 @@ git mkdir repo_name
 cd repo_name
 pwd 
 ```
-- 
+- 初始化版本库（把这个目录变成Git可以管理的仓库，此时多了一个.git的隐藏目录，使用ls -ah可查看所含文件）
+```java
+git init  
+ls -ah
+```
+- 把写好的xx.txt文件放到 git 仓库（分两步）
+```java
+git add XX.txt  #把文件修改添加到暂存区
+git commit -m "xxx"  #把暂存区的所有内容提交到当前分支
+```
+- 查看当前仓库状态
+```java
+git status
+```
+- 查看文件修改的内容
+```java
+git diff <file>
+```
+> 补充
+```gitbash
+git diff    #是工作区(work dict)和暂存区(stage)的比较
+git diff --cached    #是暂存区(stage)和分支(master)的比较
+git diff HEAD  #查看工作区和版本库里面最新版本的区别
+```
+- 查看提交日志
+```java
+git log  #显示从最近到最远的提交日志
+git log --pretty=oneline #HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，上100个版本是HEAD~100
+```
+- - 版本回退到上一个版本，并查看当前文件内容
+```java
+git reset --hard HEAD^
+git reset --hard 3628164  #3628164为commit id（版本号）
+cat xx.txt
+```
+- 查看命令日志（从建库对这个版本的所有操作记录），以便知道版本号
+```java
+git reflog
+```
+- 丢弃工作区修改
+```git
+git checkout -- file
+```
+
+
+
+
+
+
+
+
+
